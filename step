@@ -1,0 +1,12 @@
+1.下載gazebo_ros_pkgs完整pkg
+
+cd ~/catkin_ws/src
+git clone https://github.com/ros-simulation/gazebo_ros_pkgs.git -b kinetic-devel
+
+2.檢查相依並下載/更新pkg
+rosdep update
+rosdep check --from-paths . --ignore-src --rosdistro kinetic
+rosdep install --from-paths . --ignore-src --rosdistro kinetic -y
+
+3.build gazebo_ros_pkgs
+cd ~/catkin_ws/ && catkin_make

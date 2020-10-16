@@ -12,8 +12,22 @@
     <arg name="headless" value="false"/>
     <arg name="debug" value="false"/>
   </include>  
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find tel_map)/urdf/sakura.urdf.xacro" />
-  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model sakura -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -Y $(arg yaw_pos) -param robot_description" />
+
+  <group ns="/sakura">
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find tel_map)/urdf/sakura.urdf.xacro" />
+
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" output="screen" args="-urdf -param robot_description -model sakura -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos)"/>
+
+    <rosparam command="load" file="$(find tel_map)/config/sakura.yaml"/>
+    <node pkg="controller_manager"
+	type="spawner"
+	name="controller"
+	respawn="false"
+	output="screen"
+	ns="/sakura"
+	args="--namespace=/sakura arm/base arm/j1 arm/j2 arm/j3 arm/j4 arm/f1 arm/f2 rot cam_y shovel roller/arm roller/slider roller/roller"/>
+  </group>
+
 </launch>
 
 

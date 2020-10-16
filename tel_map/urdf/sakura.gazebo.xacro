@@ -1,8 +1,15 @@
-<?xml version="1.0"?>
-<robot name="SAKURA" xmlns:xacro="http://ros.org/wiki/xacro">
+<?xml version="1.0" ?>
+<robot name="sakura_setting" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:arg name="laser_visual" default="false"/>
   <xacro:arg name="camera_visual" default="false"/>
   <xacro:arg name="imu_visual"   default="false"/>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <legacyModeNS>true</legacyModeNS>
+      <robotNamespace>/sakura</robotNamespace>
+    </plugin>
+  </gazebo>
 
   <gazebo reference="base_link">
     <material>Gazebo/DarkGrey</material>
@@ -71,12 +78,12 @@
   </gazebo>
 
   <gazebo>
-    <plugin name="mc_steering" filename="libgazebo_ros_planar_move.so">
+    <plugin name="mc_steering" filename="libgazebo_ros_mc_move.so">
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <odometryRate>30.0</odometryRate>
-      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
       <publishTf>true</publishTf>
     </plugin>
   </gazebo>
@@ -175,4 +182,148 @@
     </sensor>
   </gazebo>
 
+  <transmission name="t_plate_joint">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="plate_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="plate_joint">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+   </transmission>
+
+  <transmission name="t_j1_joint">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="j1_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="j1_joint">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+   </transmission>
+
+  <transmission name="t_j2_joint">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="j2_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="j2_joint">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+   </transmission>
+
+  <transmission name="t_j3_joint">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="j3_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="j3_joint">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+   </transmission>
+
+  <transmission name="t_j4_joint">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="j4_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="j4_joint">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+   </transmission>
+
+  <transmission name="f1_joint">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="f1_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="f1_joint">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  <transmission name="f2_joint">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="f2_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="f2_joint">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  <transmission name="rot_joint">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="rot_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="rot_joint">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+   </transmission>
+
+  <transmission name="cam_yaw_joint">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="cam_yaw_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="cam_yaw_joint">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+   </transmission>
+
+  <transmission name="shovel_joint">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="shovel_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="shovel_joint">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+   </transmission>
+
+  <transmission name="roller_arm_joint">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="roller_arm_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="roller_arm_joint">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+   </transmission>
+
+  <transmission name="roller_arm_slider">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="roller_arm_slider">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="roller_arm_slider">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+   </transmission>
+
+  <transmission name="roller_joint">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="roller_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="roller_joint">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+   </transmission>
+
 </robot>
+
