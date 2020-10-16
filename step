@@ -1,7 +1,4 @@
-1.下載gazebo_ros_pkgs完整pkg
-
-cd ~/catkin_ws/src
-git clone https://github.com/ros-simulation/gazebo_ros_pkgs.git -b kinetic-devel
+1.下載gazebo_ros_pkgs完整pkg (包含在新的tel_map中),整包放在src裡就可以
 
 2.檢查相依並下載/更新pkg
 rosdep update
