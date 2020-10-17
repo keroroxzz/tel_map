@@ -30,7 +30,7 @@ class Sakura:
     rol_slid = rospy.Publisher('/sakura/roller/slider/command', Float64, queue_size=1)
 
     #Not funtional yet
-    rol_rol = rospy.Publisher('/sakura/roller/roller/command', Float64, queue_size=1)
+    rol_rol = rospy.Publisher('/sakura/roller/roller', Float64, queue_size=1)
 
     #rotation platform (0 ~ +pi*3/2) and yaw of camera (-pi/2 ~ +pi/2)
     rot = rospy.Publisher('/sakura/rot/command', Float64, queue_size=1)
