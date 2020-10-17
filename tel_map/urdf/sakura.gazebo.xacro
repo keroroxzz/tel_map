@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <robot name="sakura_setting" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:arg name="laser_visual" default="false"/>
+  <xacro:arg name="laser_visual" default="true"/>
   <xacro:arg name="camera_visual" default="false"/>
   <xacro:arg name="imu_visual"   default="false"/>
 
@@ -85,6 +85,7 @@
       <odometryRate>30.0</odometryRate>
       <robotBaseFrame>base_link</robotBaseFrame>
       <publishTf>true</publishTf>
+      <roller>roller_joint</roller>
     </plugin>
   </gazebo>
 
@@ -116,10 +117,10 @@
     </plugin>
   </gazebo>
 
-  <gazebo reference="base_scan">
+  <gazebo reference="scaner_link">
     <material>Gazebo/FlatBlack</material>
     <sensor type="ray" name="lds_lfcd_sensor">
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
       <visualize>$(arg laser_visual)</visualize>
       <update_rate>5</update_rate>
       <ray>

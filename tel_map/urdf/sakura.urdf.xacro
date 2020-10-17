@@ -137,7 +137,7 @@
     <parent link="roller_arm_b_link"/>
     <child link="roller_link"/>
     <origin xyz="0.0 0.0 0.212" rpy="0 0 0"/>
-    <limit effort="50" velocity="7.5"/>
+    <limit effort="500" velocity="20000.0"/>
     <axis xyz="0.0 1.0 0.0"/>
   </joint>
 
@@ -361,6 +361,14 @@
                izz="0.001" />
     </inertial>
   </link>
+
+  <joint name="scaner_joint" type="fixed">
+    <parent link="base_scan"/>
+    <child link="scaner_link"/>
+    <origin xyz="-0.038 0.118 0.025" rpy="0 0 0"/>
+  </joint>
+
+  <link name="scaner_link"/>
 
 <joint name="cam_yaw_joint" type="revolute">
       <origin xyz="0.0 0.118 -0.05" rpy="0 0 0"/>

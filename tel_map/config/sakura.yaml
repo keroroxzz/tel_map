@@ -91,14 +91,6 @@ roller/slider:
     p: 50.0
     i: 1.0
     d: 1.5
-    
-roller/roller:
-  type: effort_controllers/JointVelocityController
-  joint: roller_joint
-  pid:
-    p: 0.0
-    i: 0.0
-    d: 0.0
 
 
 
