@@ -56,17 +56,17 @@ rot:
   type: effort_controllers/JointPositionController
   joint: rot_joint
   pid:
-    p: 10.0
+    p: 50.0
     i: 0.0
-    d: 0.5
+    d: 5.0
 
 cam_y:
   type: effort_controllers/JointPositionController
   joint: cam_yaw_joint
   pid:
-    p: 10.0
+    p: 50.0
     i: 0.0
-    d: 0.5
+    d: 5.0
 
 shovel:
   type: effort_controllers/JointPositionController
