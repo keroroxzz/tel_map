@@ -37,20 +37,22 @@ arm/j4:
     p: 1000.0
     i: 50.0
     d: 150.0
+
 arm/f1:
   type: effort_controllers/JointPositionController
   joint: f1_joint
   pid:
-    p: 1.0
+    p: 20.0
     i: 0.0
-    d: 0.1
+    d: 1.0
+
 arm/f2:
   type: effort_controllers/JointPositionController
   joint: f2_joint
   pid:
-    p: 1.0
+    p: 20.0
     i: 0.0
-    d: 0.1
+    d: 1.0
 
 rot:
   type: effort_controllers/JointPositionController
