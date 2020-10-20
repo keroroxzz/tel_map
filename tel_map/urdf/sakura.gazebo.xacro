@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="sakura_setting" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:arg name="laser_visual" default="true"/>
-  <xacro:arg name="camera_visual" default="false"/>
+  <xacro:arg name="laser_visual" default="false"/>
+  <xacro:arg name="camera_visual" default="true"/>
   <xacro:arg name="imu_visual"   default="false"/>
 
   <gazebo>
@@ -78,7 +78,7 @@
   </gazebo>
 
   <gazebo>
-    <plugin name="mc_steering" filename="libgazebo_ros_mc_move.so">
+    <plugin name="mc_steering" filename="$(find tel_map)/lib/libgazebo_ros_mc_move.so">
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
