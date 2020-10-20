@@ -1330,16 +1330,40 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
-        <collision name='collision'>
-          <laser_retro>0</laser_retro>
-          <max_contacts>10</max_contacts>
-          <pose frame=''>0 0 0 0 -0 0</pose>
+
+        <collision name='c1'>
           <geometry>
             <box>
-              <size>0.15 0.15 0.15</size>
+              <size>0.025 0.15 0.15</size>
             </box>
           </geometry>
+          <pose frame=''>0.0625 0 0 0 -0 0</pose>
         </collision>
+        <collision name='c2'>
+          <geometry>
+            <box>
+              <size>0.025 0.15 0.15</size>
+            </box>
+          </geometry>
+          <pose frame=''>-0.0625 0 0 0 -0 0</pose>
+        </collision>
+        <collision name='c3'>
+          <geometry>
+            <box>
+              <size>0.15 0.025 0.15</size>
+            </box>
+          </geometry>
+          <pose frame=''>0.0 0.0625 0 0 -0 0</pose>
+        </collision>
+        <collision name='c4'>
+          <geometry>
+            <box>
+              <size>0.15 0.025 0.15</size>
+            </box>
+          </geometry>
+          <pose frame=''>0.0 -0.0625 0 0 -0 0</pose>
+        </collision>
+
         <visual name='visual1'>
           <geometry>
             <box>
@@ -1416,7 +1440,7 @@
             <specular>0.5 0.5 0.5 1</specular>
             <emissive>0 0 0 1</emissive>
           </material>
-          <pose frame=''>0.0 -0.0725 0 0 -0 0</pose>
+          <pose frame=''>0.0 -0.0625 0 0 -0 0</pose>
           <cast_shadows>1</cast_shadows>
           <transparency>0</transparency>
         </visual>
@@ -1495,16 +1519,40 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
-        <collision name='collision'>
-          <laser_retro>0</laser_retro>
-          <max_contacts>10</max_contacts>
-          <pose frame=''>0 0 0 0 -0 0</pose>
+        
+        <collision name='c1'>
           <geometry>
             <box>
-              <size>0.15 0.15 0.15</size>
+              <size>0.025 0.15 0.15</size>
             </box>
           </geometry>
+          <pose frame=''>0.0625 0 0 0 -0 0</pose>
         </collision>
+        <collision name='c2'>
+          <geometry>
+            <box>
+              <size>0.025 0.15 0.15</size>
+            </box>
+          </geometry>
+          <pose frame=''>-0.0625 0 0 0 -0 0</pose>
+        </collision>
+        <collision name='c3'>
+          <geometry>
+            <box>
+              <size>0.15 0.025 0.15</size>
+            </box>
+          </geometry>
+          <pose frame=''>0.0 0.0625 0 0 -0 0</pose>
+        </collision>
+        <collision name='c4'>
+          <geometry>
+            <box>
+              <size>0.15 0.025 0.15</size>
+            </box>
+          </geometry>
+          <pose frame=''>0.0 -0.0625 0 0 -0 0</pose>
+        </collision>
+
         <visual name='visual1'>
           <geometry>
             <box>
@@ -1612,8 +1660,6 @@
     <gui fullscreen='0'>
       <camera name='user_camera'>
         <pose frame=''>5.13905 -1.17399 2.52962 -0 0.369798 2.51619</pose>
-        <view_controller>ortho</view_controller>
-        <projection_type>orthographic</projection_type>
       </camera>
     </gui>
   </world>
