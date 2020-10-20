@@ -42,7 +42,7 @@ arm/f1:
   type: effort_controllers/JointPositionController
   joint: f1_joint
   pid:
-    p: 20.0
+    p: 500.0
     i: 0.0
     d: 1.0
 
@@ -50,7 +50,7 @@ arm/f2:
   type: effort_controllers/JointPositionController
   joint: f2_joint
   pid:
-    p: 20.0
+    p: 500.0
     i: 0.0
     d: 1.0
 
