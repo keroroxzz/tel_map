@@ -62,13 +62,15 @@ class Dragbar:
         self.pub = rospy.Publisher(topic, Float64, queue_size=1)
 
         self.val = 0.0
+        self.bar_v = 0
 
     def show(self, img, pos, size):
-        cv2.createTrackbar(self.barname, self.winname, 0, self.resolution, self.callback)
+        cv2.createTrackbar(self.barname, self.winname, self.bar_v, self.resolution, self.callback)
 
         cv2.putText(img, '{0} : {1:.2f}'.format(self.barname, self.val), pos, cv2.FONT_HERSHEY_SIMPLEX, size, (255,255,255),2, cv2.LINE_AA)
     
     def callback(self, v):
+        self.bar_v=v
         self.val = (self.max-self.min)*v/self.resolution + self.min
         self.pub.publish(self.val)
     
@@ -95,15 +97,14 @@ class Panel:
 
         cv2.namedWindow('panel', cv2.WINDOW_NORMAL)
         cv2.namedWindow('control', cv2.WINDOW_NORMAL)
+        cv2.resizeWindow('panel',420,300)
+        cv2.resizeWindow('control',300,420)
 
     def loop(self):
         while not rospy.is_shutdown():
             try:
                 img = np.zeros((420,300))
-
                 size = 0.8
-                cv2.namedWindow('panel', cv2.WINDOW_NORMAL)
-                cv2.resizeWindow('panel',(420,300))
                 self.shovel.show(img, (20, 30), size)
                 self.roller_arm.show(img, (20, 60), size)
                 self.roller_slider.show(img, (20, 90), size)
@@ -117,10 +118,7 @@ class Panel:
                 self.arm_j4.show(img, (20, 330), size)
                 self.arm_f1.show(img, (20, 360), size)
                 self.arm_f2.show(img, (20, 390), size)
-                cv2.waitKey(1)
 
-                cv2.namedWindow('control', cv2.WINDOW_NORMAL)
-                cv2.resizeWindow('control',(300,420))
                 cv2.imshow('control', img)
                 cv2.waitKey(1)
 
