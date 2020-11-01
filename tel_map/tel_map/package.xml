@@ -1,0 +1,28 @@
+<?xml version="1.1"?>
+<package format="2">
+  <name>tel_map</name>
+  <version>0.0.0</version>
+  <description>The tel map package</description>
+  <maintainer email="rtu@todo.todo">rtu</maintainer>
+  <license>Apache 2.0</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf</depend>
+  <depend>gazebo_ros</depend>
+  <exec_depend>gazebo</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <export>
+    <gazebo_ros gazebo_media_path="${prefix}"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models"/>
+  </export>
+</package>

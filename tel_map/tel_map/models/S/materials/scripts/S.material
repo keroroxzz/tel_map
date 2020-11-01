@@ -1,0 +1,14 @@
+material S
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture S.png
+      }
+    }
+  }
+}
+

@@ -1,0 +1,7 @@
+啟動地圖 ： roslaunch tel_map map.launch
+
+camera topic : /camera_image/image/compressed
+
+move the car : pub a Twist object to /cmd_vel
+
+position by encoder : /odom
