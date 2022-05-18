@@ -1,7 +1,11 @@
-啟動地圖 ： roslaunch tel_map map.launch
+#TEL Robot Combat 2021 map
+This is the map used for development of our Robot for TEL Robot Combat 2021.
 
-camera topic : /camera_image/image/compressed
 
-move the car : pub a Twist object to /cmd_vel
+##Usage
+roslaunch tel_map map.launch
 
-position by encoder : /odom
+##Topics
+camera topic:	/camera_image/image/compressed
+velocity cmd:	/cmd_vel
+odometry:	/odom
