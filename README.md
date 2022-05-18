@@ -7,5 +7,7 @@ roslaunch tel_map map.launch
 
 ## Topics
 camera topic:	/camera_image/image/compressed
+
 velocity cmd:	/cmd_vel
+
 odometry:	/odom
